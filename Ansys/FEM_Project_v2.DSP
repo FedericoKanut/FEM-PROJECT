@@ -1,8 +1,5 @@
 
-
-
-
-  Performance statistics for DSP solver: icalls =      2
+  Performance statistics for DSP solver: icalls =      1
 
  ===========================
  = multifrontal statistics =
@@ -28,11 +25,11 @@
      number of processes used                =               1
      number of threads per process used      =               4
      number of cores used                    =               4
-     time (cpu & wall) for structure input   =        0.000000        0.000085
-     time (cpu & wall) for ordering          =        0.000000        0.000317
-     time (cpu & wall) for other matrix prep =        0.062500        0.000250
-     time (cpu & wall) for value input       =        0.000000        0.000122
-     time (cpu & wall) for matrix distrib.   =        0.000000        0.000216
+     time (cpu & wall) for structure input   =        0.000000        0.000127
+     time (cpu & wall) for ordering          =        0.000000        0.000324
+     time (cpu & wall) for other matrix prep =        0.000000        0.000346
+     time (cpu & wall) for value input       =        0.000000        0.000121
+     time (cpu & wall) for matrix distrib.   =        0.000000        0.000475
 
      no input or output performed
 

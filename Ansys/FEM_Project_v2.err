@@ -40,3 +40,55 @@
  *** WARNING ***                         CP =      36.234   TIME= 16:20:33
  ESHAPE is not a recognized POST1 command, abbreviation, or macro.       
   This command will be ignored.                                          
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       16:21:42
+
+ *** WARNING ***                         CP =       1.391   TIME= 16:22:02
+ PINTF is not a recognized PREP7 command, abbreviation, or macro.        
+  This command will be ignored.                                          
+
+ *** WARNING ***                         CP =       1.500   TIME= 16:22:02
+ PINTF is not a recognized PREP7 command, abbreviation, or macro.        
+  This command will be ignored.                                          
+
+ *** WARNING ***                         CP =       1.500   TIME= 16:22:02
+ PINTF is not a recognized PREP7 command, abbreviation, or macro.        
+  This command will be ignored.                                          
+
+ *** WARNING ***                         CP =       1.516   TIME= 16:22:03
+ MPC184 elements are being used in the current analysis and the          
+ NLGEOM,ON command has not been used.  Thus, only linearized behavior    
+ will be considered.  If finite rotation and large deflection effects    
+ are to be considered, please use the NLGEOM,ON command.                 
+
+ *** WARNING ***                         CP =       1.641   TIME= 16:22:03
+ Pivoting has been activated for the Sparse Matrix Solver .  The memory  
+ required may greatly exceed the predicted amount.  In that event, use   
+ the DSPOPTION command to change the memory mode and/or memory size      
+ used by the Sparse Matrix Solver.                                       
+
+ *** WARNING ***                         CP =      40.938   TIME= 16:52:35
+ No element table items are available.  The PLLS command is ignored.     
+
+ *** WARNING ***                         CP =      56.688   TIME= 18:38:49
+ PINTF is not a recognized PREP7 command, abbreviation, or macro.        
+  This command will be ignored.                                          
+
+ *** WARNING ***                         CP =      56.844   TIME= 18:38:49
+ PINTF is not a recognized PREP7 command, abbreviation, or macro.        
+  This command will be ignored.                                          
+
+ *** WARNING ***                         CP =      56.844   TIME= 18:38:49
+ PINTF is not a recognized PREP7 command, abbreviation, or macro.        
+  This command will be ignored.                                          
+
+ *** WARNING ***                         CP =      56.891   TIME= 18:38:49
+ MPC184 elements are being used in the current analysis and the          
+ NLGEOM,ON command has not been used.  Thus, only linearized behavior    
+ will be considered.  If finite rotation and large deflection effects    
+ are to be considered, please use the NLGEOM,ON command.                 
+
+ *** WARNING ***                         CP =      57.016   TIME= 18:38:49
+ Pivoting has been activated for the Sparse Matrix Solver .  The memory  
+ required may greatly exceed the predicted amount.  In that event, use   
+ the DSPOPTION command to change the memory mode and/or memory size      
+ used by the Sparse Matrix Solver.                                       

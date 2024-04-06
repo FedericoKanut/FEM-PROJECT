@@ -745,3 +745,15 @@ PLDISP,1
 SAVE
 FINISH  
 ! /EXIT,ALL 
+/BATCH  
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       16:21:43
+/input,menust,tmp,''
+/GRA,POWER
+/GST,ON
+/PLO,INFO,3
+/GRO,CURL,ON
+/CPLANE,1   
+/REPLOT,RESIZE  
+WPSTYLE,,,,,,,,0
+/REPLOT,RESIZE  
+/INPUT,'FEM_Project_v2','txt','D:\FEM\PROJECT\Ansys\',, 0   

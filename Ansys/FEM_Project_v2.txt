@@ -168,3 +168,8 @@ solve
 FINISH
 
 ! >>>>> POST-PROCESSING <<<<<
+/post1
+set,last
+pldisp,1
+/eshape,1
+plnsol,s,x
