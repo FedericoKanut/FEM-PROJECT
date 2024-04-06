@@ -1,0 +1,111 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[a4paper]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{rotating}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{afterpage}
+\usepackage{multicol}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{pdfpages}
+\usepackage{textgreek}
+\usepackage{verbatim}
+\usepackage{pdfpages}
+
+\usepackage[style=chem-angew]{biblatex}
+\addbibresource{biblio.bib}
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\begin{figure}[H]
+  \includegraphics[scale=0.7]{images/logo_unitn.jpg}
+  \end{figure}
+  \vspace{5mm}
+  \LARGE{UNIVERSIT\`A DEGLI STUDI DI TRENTO}
+  
+  \vspace*{10mm}
+  \LARGE{Mechatronics Engineering}
+  \rule{\linewidth}{1pt}
+  \vspace*{5mm}
+  \uppercase{initial Report FEM}\\
+  \vspace*{1mm}
+  \huge{\bfseries Mixer with vertical blades }
+\end{center}
+\vspace*{20mm}
+
+\begin{center}
+\textbf{Team Members:}\\
+    Federico Canuto\\
+    Leonardo Castagna\\
+    Lorenzo Stona\\
+\end{center}
+\vspace{5mm}
+\begin{center}
+COURSE PROFESSOR: Matteo Benedetti
+\end{center}  
+
+\vspace*{6mm}
+\normalsize
+\begin{center}
+  \uppercase{Academic year} 2023 / 2024
+\end{center}
+\vfill
+\end{titlepage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{page}{1}
+\addcontentsline{toc}{chapter}{Introduction}
+\chapter{Product Design Specifications}
+\input{Cap 1/product_design_specifications.tex}
+
+\chapter{Design Process}
+\input{Cap 2/design_process.tex}
+
+\chapter{Final Design Proposal}
+\input{Cap 3/final_design_proposal.tex}
+
+
+\chapter{Device analysis and Verification}
+\input{Cap 4/device_analysis_and_Verification.tex}
+
+\section{Forks}
+\input{Cap 4/forks.tex}
+
+\section{Cross bar}
+\input{Cap 4/cross_bar.tex}
+
+\section{Bolted connection}
+\input{Cap 4/bolted_connection_crossbar.tex}
+
+\section{Horizontal movement}
+\input{Cap 4/horizontal.tex}
+
+\newpage
+\subsection{Electric motor}
+\input{Cap 4/electric_motor.tex}
+
+
+\newpage
+\section{Scissor mechanism}
+The vertical movement of the lifting system is given by a couple of joined scissor mechanisms. 
+\input{Cap 4/vertical.tex}
+
+\chapter{Project Review}
+\input{Cap 5/project_review.tex}
+
+\chapter{Conclusions and annexes}
+\input{Cap 6/conclusion.tex}
+
+\printbibliography
+
+\end{document}
