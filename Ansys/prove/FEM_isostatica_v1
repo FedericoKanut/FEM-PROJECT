@@ -1,0 +1,143 @@
+! ------------------------------------------------------------------------------
+! PROBLEM: VERTICAL BLADE MIXER
+! ...............................................................
+! DETERMINATION OF MAXIMUM DISPLACEMENT AND DIAGRAMS OF INTERNAL LOADING
+! ------------------------------------------------------------------------------
+
+FINISH
+/CLEAR, START, NEW
+/FILNAM,isostatic
+/TITLE,isostatic model
+
+! >>>>> MODEL PARAMETERS <<<<<
+L1 = 1400 	! Length of the first horizontal segment of the beam
+L2 = 1200	! Length of the second horizontal segment of the beam
+! L3 = 1400	! Length of the third horizontal segment of the beam
+H = 300	! Portion of the blade above the water
+H1 = 1200	! Portion of the blade submerged in the water
+
+
+!element 1 -> Horizontal beam
+W3 = 150	!cross section width
+H3 = 180  !cross section height
+TS1 = 10	!cross section thickness
+
+!element 2 -> Blade 
+!>>>User-defined section<<<<!
+
+
+! >>>>> MATERIAL PROPERTIES <<<<<
+E_Young = 210000   ! Young's modulus, MPa
+ni = 0.29	    ! Poisson's ratio
+Density=7.85e-6		! Kg/mm3
+
+! >>>>> LOADING CONDITIONS <<<<<
+fp1= 2.390				! distributed load, (N/mm)
+fp2= 4.450				! distributed load, (N/mm)
+E_length = 100	! element length (mm)
+Eps = 1E-4	! selection tolerance
+
+/PREP7 
+ET,1,BEAM189
+
+!cross-sectional data of the beam
+SECTYPE,1,BEAM,HREC, beam
+SECDATA,W3,H3,TS1,TS1,TS1,TS1
+
+! cross-sectional data of the blade
+SECTYPE,2,beam,mesh, blade
+SECREAD, pale, sect,,mesh
+
+
+MP, EX, 1, E_Young
+MP, PRXY, 1, ni
+MP,dens,1,density
+
+!keypoints horizontal beam
+K, 1, 0, 0	
+K, 2, L1,0, 0
+K, 3, L1+L2,0,0
+!K,100,-2*W2 !Orientazion for pillar 
+L,1,2
+L,2,3
+LESIZE, all,E_length
+LATT,1,,1,,,,1
+!LATT,1,,1,,100,,1
+LMESH, 1,2
+Lsel,u,line,,all
+
+!keypoints vertical blade
+K,11,L1,0,0	
+K,12,L1,-H,0
+K,13,L1,-H-H1,0
+k,50,L1,10*L1,0
+
+LESIZE, all,E_length
+Latt,1,,1,,50,,2
+LMESH,all
+Lsel,u,line,,all
+
+
+nummrg,kp
+
+allsel,all
+
+!use of CPINTF     !Internal pins
+CPINTF,ux,eps
+CPINTF,uy,eps
+CPINTF,uz,eps
+CPINTF,rotx,eps
+CPINTF,roty,eps
+
+save
+Fini
+
+/SOLUTION
+ANTYPE, STATIC, NEW   !static solution
+
+!Fixed base
+NSEL, S, loc,y,-eps,+eps	
+NSEL,R,loc,x,-eps,+eps
+D, ALL,ALL
+allsel,all
+
+ksel,s,kp,,14
+nslk,s
+F,all,Fy,-Force
+ALLSEL, all
+
+!Gravitational acceleration
+Acel,,9.81	!m/s2
+
+outres,all,all
+solve
+save
+fini
+
+/post1
+set,last
+pldisp,1
+/eshape,1
+plnsol,s,x
+
+!Internal actions
+
+ETABLE, axI, SMISC, 1 	!axial force I
+ETABLE, axj, SMISC, 14	!axial force J
+ETABLE, shearyI, SMISC, 6 	!shear I
+ETABLE, shearyj, SMISC, 19	!shear J
+ETABLE, shearzI, SMISC, 5 	!shear I
+ETABLE, shearzj, SMISC, 18	!shear J
+
+ETABLE, momzI, SMISC, 3   	!moment z in I
+ETABLE, momzJ, SMISC, 16  	!moment z in J
+ETABLE, momyI, SMISC, 2   	!moment y in I
+ETABLE, momyJ, SMISC, 15  	!moment y in J
+
+PLLS, axI, axJ
+
+PLLS, shearyI, shearyJ
+PLLS, shearzI, shearzJ	
+
+PLLS, momzI, momzJ
+PLLS, momyI, momyJ

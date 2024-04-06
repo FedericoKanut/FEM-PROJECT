@@ -1,0 +1,299 @@
+/BATCH  
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       18:32:30
+/input,menust,tmp,''
+/GRA,POWER
+/GST,ON
+/PLO,INFO,3
+/GRO,CURL,ON
+/CPLANE,1   
+/REPLOT,RESIZE  
+WPSTYLE,,,,,,,,0
+/REPLOT,RESIZE  
+/INPUT,'pale','txt','C:\Users\feder\Desktop\FEM\PROJECT\Ansys\',, 0 
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       22:06:25
+/INPUT,'pale','txt','C:\Users\feder\Desktop\FEM\PROJECT\Ansys\',, 0 
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       22:07:09
+/REPLOT,RESIZE  
+/REPLOT,RESIZE  
+/REPLOT,RESIZE  
+/REPLOT,RESIZE  
+/INPUT,'pale','txt','C:\Users\feder\Desktop\FEM\PROJECT\Ansys\',, 0 
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       22:09:30
+/PNUM,KP,0  
+/PNUM,LINE,0
+/PNUM,AREA,0
+/PNUM,VOLU,0
+/PNUM,NODE,1
+/PNUM,TABN,0
+/PNUM,SVAL,0
+/PNUM,DOMA,0
+/NUMBER,0   
+!*  
+/PNUM,ELEM,0
+/REPLOT 
+!*  
+/PNUM,KP,0  
+/PNUM,LINE,0
+/PNUM,AREA,0
+/PNUM,VOLU,0
+/PNUM,NODE,1
+/PNUM,TABN,0
+/PNUM,SVAL,0
+/PNUM,DOMA,0
+/NUMBER,0   
+!*  
+/PNUM,ELEM,0
+/REPLOT 
+!*  
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/FOC, 1 ,,-0.300000,,1  
+/REP,FAST   
+/FOC, 1 ,,-0.300000,,1  
+/REP,FAST   
+/FOC, 1 ,,-0.300000,,1  
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/FOC, 1 ,,-0.300000,,1  
+/REP,FAST   
+/FOC, 1 ,,-0.300000,,1  
+/REP,FAST   
+/FOC, 1 ,0.300000,,,1   
+/REP,FAST   
+/FOC, 1 ,0.300000,,,1   
+/REP,FAST   
+/FOC, 1 ,0.300000,,,1   
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/FOC, 1 ,0.300000,,,1   
+/REP,FAST   
+/FOC, 1 ,0.300000,,,1   
+/REP,FAST   
+/FOC, 1 ,0.300000,,,1   
+/REP,FAST   
+/AUTO, 1
+/REP
+/VIEW, 1
+/FOC, 1 ,AUTO   
+/DIST, 1
+/ANG, 1 
+/LIG, 1 ,1  
+/REP
+/REPLOT,RESIZE  
+/PREP7  
+NUMMRG,ALL, , , ,LOW
+AESIZE,ALL,5,   
+MSHAPE,0,2D 
+AMESH,ALL   
+/INPUT,'pale','txt','C:\Users\feder\Desktop\FEM\PROJECT\Ansys\',, 0 
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       22:16:33
+/INPUT,'User_defined_section','txt','C:\Users\feder\Desktop\FEM\Practical application n.2-20240312\',, 0
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       22:17:07
+/INPUT,'pale','txt','C:\Users\feder\Desktop\FEM\PROJECT\Ansys\',, 0 
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       22:17:24
+! secwrite,pale,sect,,plane183  
+/prep7  
+/REPLOT,RESIZE  
+secwrite,trave,sect,,plane183   
+/INPUT,'pale','txt','C:\Users\feder\Desktop\FEM\PROJECT\Ansys\',, 0 
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       22:18:29
+SAVE
+SAVE
+FINISH  
+FINISH  
+! secwrite,trave,sect,,plane183 
+/SOLU   
+FINISH  
+/POST1  
+/REPLOT,RESIZE  
+/REPLOT,RESIZE  
+! secwrite,trave,sect,,plane183 
+FINISH  
+/PREP7  
+secwrite,trave,sect,,plane183   
+FINISH  
+! /EXIT,ALL 
+/BATCH  
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       16:20:35
+/input,menust,tmp,''
+/GRA,POWER
+/GST,ON
+/PLO,INFO,3
+/GRO,CURL,ON
+/CPLANE,1   
+/REPLOT,RESIZE  
+WPSTYLE,,,,,,,,0
+/REPLOT,RESIZE  
+/REPLOT,RESIZE  
+FINISH  
+FINISH  
+/REPLOT,RESIZE  
+/REPLOT,RESIZE  
+/CLEAR, START, NEW  
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       18:27:39
+/input,start,ans,'D:\Ansys\ANSYS Inc\ANSYS Student\v241\ANSYS\apdl\'
+/REPLOT,RESIZE  
+/FILNAM,isostatic   
+/TITLE,isostatic model  
+*SET,L1 , 1400  
+*SET,L2 , 1200  
+*SET,H , 300
+*SET,H1 , 1200  
+*SET,W3 , 150   
+*SET,H3 , 180   
+*SET,TS1 , 10   
+*SET,E_Young , 210000   
+*SET,ni , 0.29  
+*SET,Density,7.85e-6
+*SET,fp1, 2.390 
+*SET,fp2, 4.450 
+*SET,E_length , 100 
+*SET,Eps , 1E-4 
+/PREP7  
+ET,1,BEAM189
+SECTYPE,1,BEAM,HREC, beam   
+SECDATA,W3,H3,TS1,TS1,TS1,TS1   
+SECTYPE,2,beam,mesh, blade  
+SECREAD, trave, sect,,mesh  
+SECREAD, pale, sect,,mesh   
+MP, EX, 1, E_Young  
+MP, PRXY, 1, ni 
+MP,dens,1,density   
+K, 1, 0, 0  
+K, 2, L1,0, 0   
+K, 3, L1+L2,0,0 
+L,1,2   
+L,2,3   
+LESIZE, all,E_length
+LATT,1,,1,,,,1  
+LMESH, 1,2  
+Lsel,u,line,,all
+K,11,L1,0,0 
+K,12,L1,-H,0
+K,13,L1,-H-H1,0 
+k,50,L1,10*L1,0 
+LESIZE, all,E_length
+Latt,1,,1,,50,,2
+LMESH,all   
+Latt,1,,1,,50,,2
+kdele,50
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+LESIZE, all,E_length
+LMESH,all   
+Lsel,u,line,,all
+nummrg,kp   
+allsel,all  
+CPINTF,ux,eps   
+CPINTF,uy,eps   
+CPINTF,uz,eps   
+CPINTF,rotx,eps 
+CPINTF,roty,eps 
+save
+Fini
+/SOLUTION   
+ANTYPE, STATIC, NEW 
+FINISH  
+! /EXIT,NOSAV   

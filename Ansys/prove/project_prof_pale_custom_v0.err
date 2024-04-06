@@ -1,0 +1,59 @@
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       11:17:52
+
+ *** WARNING ***                         CP =       4.188   TIME= 11:29:04
+ PLLS is not a recognized BEGIN command, abbreviation, or macro.  This   
+ command will be ignored.                                                
+
+ *** WARNING ***                         CP =       9.688   TIME= 11:35:10
+ PLLS is not a recognized BEGIN command, abbreviation, or macro.  This   
+ command will be ignored.                                                
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       11:54:10
+
+ *** ERROR ***                           CP =      12.125   TIME= 10:43:47
+ A large negative pivot value ( -5.264282266E-03 ) has been encountered  
+ in the global assembled matrix at the ROTY degree of freedom of node    
+ 12.  This may be caused by a bad temperature-dependent material         
+ property used in the model.                                             
+
+ *** ERROR ***                           CP =      12.297   TIME= 10:43:47
+ An error occurred while attempting to open the results file beam.rst.   
+
+ *** ERROR ***                           CP =      13.406   TIME= 10:43:59
+ No results file available.                                              
+
+ *** ERROR ***                           CP =      14.062   TIME= 10:44:10
+ A large negative pivot value ( -5.264282266E-03 ) has been encountered  
+ in the global assembled matrix at the ROTY degree of freedom of node    
+ 12.  This may be caused by a bad temperature-dependent material         
+ property used in the model.                                             
+
+ *** ERROR ***                           CP =      14.219   TIME= 10:44:10
+ An error occurred while attempting to open the results file beam.rst.   
+
+ *** ERROR ***                           CP =      15.312   TIME= 10:44:26
+ No results file available.                                              
+
+ *** ERROR ***                           CP =      15.922   TIME= 10:44:40
+ A large negative pivot value ( -5.264282266E-03 ) has been encountered  
+ in the global assembled matrix at the ROTY degree of freedom of node    
+ 12.  This may be caused by a bad temperature-dependent material         
+ property used in the model.                                             
+
+ *** ERROR ***                           CP =      16.094   TIME= 10:44:40
+ An error occurred while attempting to open the results file beam.rst.   
+
+ *** ERROR ***                           CP =      17.797   TIME= 10:48:40
+ No results file available.                                              
+
+ *** WARNING ***                         CP =      32.297   TIME= 11:18:42
+ Both solid model and finite element model boundary conditions have been 
+ applied to this model.  As solid loads are transferred to the nodes or  
+ elements, they can overwrite directly applied loads.                    
+
+ *** WARNING ***                         CP =      86.984   TIME= 11:34:19
+ PLLS is not a recognized BEGIN command, abbreviation, or macro.  This   
+ command will be ignored.                                                
+
+ *** WARNING ***                         CP =      87.281   TIME= 11:34:24
+ PLLS is not a recognized BEGIN command, abbreviation, or macro.  This   
+ command will be ignored.                                                

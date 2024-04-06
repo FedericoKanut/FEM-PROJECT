@@ -1,0 +1,99 @@
+! ---------------------------------------------------------------------------------
+! PROBLEM: SIMPLY SUPPORTED BEAM
+! ...............................................................
+! DETERMINATION OF MAXIMUM DISPLACEMENT AND DIAGRAMS OF INTERNAL LOADING
+! ---------------------------------------------------------------------------------
+
+FINISH
+/CLEAR, START, NEW
+/FILNAM,beam
+/TITLE,simply supported beam
+
+! >>>>> MODEL PARAMETERS <<<<<
+Ltot= 4000		! Horizontal beam length, mm
+W3 = 150			! cross section width, mm
+H3 = 180			! cross section height, mm
+TS = 10				! thickness, mm
+ndiv = 10! nr of elements
+
+! >>>>> MATERIAL PROPERTIES <<<<<
+E_Young = 210000		! Young's modulus, MPa
+ni = 0.29			! Poisson's ratio
+
+! >>>>> LOADING CONDITIONS <<<<<
+w= 12				! distributed load, (N/mm)
+
+/PREP7
+ET, 1, BEAM189
+!cross-sectional data
+SECTYPE,1,BEAM,HRECT	!rectangular cross section
+SECDATA,H3,W3,TS,TS,TS,TS		!width and height
+
+MP, EX, 1, E_Young
+MP, PRXY, 1, ni
+
+K, 1, 0, 0
+K, 2, Ltot, 0
+L, 1, 2
+LESIZE, 1, , , ndiv
+
+TYPE, 1
+SECNUM, 1
+MAT, 1
+LMESH, 1
+
+ALLSEL, ALL, ALL
+SAVE
+FINISH
+
+/SOLUTION
+ANTYPE, STATIC, NEW
+
+! NSEL, S, LOC, X, 0-1E-4, 0+1E-4       ! NSEL, Type, Item, Comp, VMIN, VMAX, VINC, KABS
+! D,all,ux,0,,,,uy,uz,rotx,roty,rotz         ! Incastro in x=0
+
+! define a clamped node at x=0 in ansys
+NSEL, S, LOC, X, 0-1E-4, 0+1E-4
+D,all,ux,uy,uz,rotx,roty,rotz
+
+! define a roller node at x=Ltot in ansys that locks the rotation about the x-axis and the vertical displacement
+NSEL, S, LOC, X, Ltot-1E-4, Ltot+1E-4
+D,all,uy,0,,,,uz,rotx,rotz
+
+! NSEL,s,loc,x, Ltot-1E-4, Ltot+1E-4,
+! D,all,uy,0,,,,uz,rotx,rotz
+
+
+ALLSEL, ALL, ALL
+
+LSEL, S, LINE, , 1
+ESLL, S
+SFBEAM, ALL, 1, PRES, w                ! Check Help for load key (load direction)
+
+ALLSEL, ALL, ALL
+SAVE
+
+outres,all,all
+SOLVE
+FINISH
+
+/POST1
+set,last
+ETABLE, sfzI, SMISC, 5	!shear force z node i
+ETABLE, sfzJ, SMISC, 18 !shear force z node j
+ETABLE, myI, SMISC, 2	!bending moment y node i 
+ETABLE, myJ, SMISC, 15	!bending moment y node j
+ETABLE, sigmaxI, SMISC, 35	!maximum bending stress node i
+ETABLE, sigmaxJ, SMISC, 40	!maximum bending stress node j
+ETABLE, sigminI, SMISC, 34	!minimum bending stress node i 
+ETABLE, sigminJ, SMISC, 39	!minimum bending stress node j
+
+PLLS, sfzI, sfzJ
+PLLS, myI, myJ
+PLLS, sigmaxI, sigmaxJ
+PLLS, sigminI, sigminJ
+
+*GET, vM, SECR, 5, S, EQV, MAX, 
+
+FINISH
+

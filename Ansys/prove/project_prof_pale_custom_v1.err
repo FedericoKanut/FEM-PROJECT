@@ -1,0 +1,81 @@
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       18:32:29
+
+ *** WARNING ***                         CP =       2.828   TIME= 18:34:47
+ After NUMMRG,ALL, node 54 (and possibly others) is associated with more 
+ than one solid model entity.  Future commands which depend on the node  
+ to solid model connectivity (meshing, mesh clearing, solid boundary     
+ condition transfer, etc.) may not operate properly.                     
+
+ *** WARNING ***                         CP =       3.703   TIME= 22:06:25
+ After NUMMRG,ALL, node 54 (and possibly others) is associated with more 
+ than one solid model entity.  Future commands which depend on the node  
+ to solid model connectivity (meshing, mesh clearing, solid boundary     
+ condition transfer, etc.) may not operate properly.                     
+
+ *** WARNING ***                         CP =       5.203   TIME= 22:07:30
+ After NUMMRG,ALL, node 54 (and possibly others) is associated with more 
+ than one solid model entity.  Future commands which depend on the node  
+ to solid model connectivity (meshing, mesh clearing, solid boundary     
+ condition transfer, etc.) may not operate properly.                     
+
+ *** WARNING ***                         CP =       7.969   TIME= 22:12:58
+ After NUMMRG,ALL, node 54 (and possibly others) is associated with more 
+ than one solid model entity.  Future commands which depend on the node  
+ to solid model connectivity (meshing, mesh clearing, solid boundary     
+ condition transfer, etc.) may not operate properly.                     
+
+ *** WARNING ***                         CP =       8.438   TIME= 22:14:48
+ All of the selected areas in the set named on the AMESH command were    
+ already meshed.  Clear associated elements before remeshing.            
+
+ *** WARNING ***                         CP =       8.734   TIME= 22:15:32
+ After NUMMRG,ALL, node 104 (and possibly others) is associated with     
+ more than one solid model entity.  Future commands which depend on the  
+ node to solid model connectivity (meshing, mesh clearing, solid         
+ boundary condition transfer, etc.) may not operate properly.            
+
+ *** WARNING ***                         CP =       9.125   TIME= 22:16:33
+ After NUMMRG,ALL, node 50 (and possibly others) is associated with more 
+ than one solid model entity.  Future commands which depend on the node  
+ to solid model connectivity (meshing, mesh clearing, solid boundary     
+ condition transfer, etc.) may not operate properly.                     
+
+ *** WARNING ***                         CP =       9.531   TIME= 22:17:07
+ After NUMMRG,ALL, node 54 (and possibly others) is associated with more 
+ than one solid model entity.  Future commands which depend on the node  
+ to solid model connectivity (meshing, mesh clearing, solid boundary     
+ condition transfer, etc.) may not operate properly.                     
+
+ *** WARNING ***                         CP =       9.703   TIME= 22:17:24
+ SECWRITE is not a recognized BEGIN command, abbreviation, or macro.     
+ This command will be ignored.                                           
+
+ *** WARNING ***                         CP =      10.625   TIME= 22:18:23
+ After NUMMRG,ALL, node 54 (and possibly others) is associated with more 
+ than one solid model entity.  Future commands which depend on the node  
+ to solid model connectivity (meshing, mesh clearing, solid boundary     
+ condition transfer, etc.) may not operate properly.                     
+
+ *** WARNING ***                         CP =      11.016   TIME= 22:19:09
+ SECWRITE is not a recognized BEGIN command, abbreviation, or macro.     
+ This command will be ignored.                                           
+
+ *** WARNING ***                         CP =      11.859   TIME= 22:19:46
+ SECWRITE is not a recognized POST1 command, abbreviation, or macro.     
+  This command will be ignored.                                          
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       16:20:34
+
+ *** ERROR ***                           CP =      16.969   TIME= 18:29:57
+ File trave.sect does not exist.  Unable to Read USER BEAM SECTION.      
+
+ *** WARNING ***                         CP =      17.797   TIME= 18:32:23
+ There are no selected unmeshed lines.  The LATT command is ignored.     
+
+ *** ERROR ***                           CP =      17.844   TIME= 18:32:32
+ There are no selected lines in the set named on the LMESH command.      
+
+ *** WARNING ***                         CP =      17.969   TIME= 18:32:42
+ There are no selected unmeshed lines.  The LATT command is ignored.     
+
+ *** ERROR ***                           CP =      18.250   TIME= 18:33:44
+ There are no selected lines in the set named on the LMESH command.      
