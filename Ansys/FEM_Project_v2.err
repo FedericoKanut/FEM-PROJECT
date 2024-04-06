@@ -1,0 +1,42 @@
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       15:32:08
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       15:32:21
+
+ *** WARNING ***                         CP =       9.891   TIME= 16:12:32
+ MPC184 elements are being used in the current analysis and the          
+ NLGEOM,ON command has not been used.  Thus, only linearized behavior    
+ will be considered.  If finite rotation and large deflection effects    
+ are to be considered, please use the NLGEOM,ON command.                 
+
+ *** WARNING ***                         CP =      10.109   TIME= 16:12:38
+ Pivoting has been activated for the Sparse Matrix Solver .  The memory  
+ required may greatly exceed the predicted amount.  In that event, use   
+ the DSPOPTION command to change the memory mode and/or memory size      
+ used by the Sparse Matrix Solver.                                       
+
+ *** WARNING ***                         CP =      11.047   TIME= 16:13:19
+ ESHAPE is not a recognized BEGIN command, abbreviation, or macro.       
+ This command will be ignored.                                           
+
+ *** WARNING ***                         CP =      11.094   TIME= 16:13:28
+ \ESHAËE is not a recognized BEGIN command, abbreviation, or macro.      
+ This command will be ignored.                                           
+
+ *** WARNING ***                         CP =      11.094   TIME= 16:13:38
+ \ESHAPE is not a recognized BEGIN command, abbreviation, or macro.      
+ This command will be ignored.                                           
+
+ *** WARNING ***                         CP =      21.219   TIME= 16:15:14
+ MPC184 elements are being used in the current analysis and the          
+ NLGEOM,ON command has not been used.  Thus, only linearized behavior    
+ will be considered.  If finite rotation and large deflection effects    
+ are to be considered, please use the NLGEOM,ON command.                 
+
+ *** WARNING ***                         CP =      21.438   TIME= 16:15:15
+ Pivoting has been activated for the Sparse Matrix Solver .  The memory  
+ required may greatly exceed the predicted amount.  In that event, use   
+ the DSPOPTION command to change the memory mode and/or memory size      
+ used by the Sparse Matrix Solver.                                       
+
+ *** WARNING ***                         CP =      36.234   TIME= 16:20:33
+ ESHAPE is not a recognized POST1 command, abbreviation, or macro.       
+  This command will be ignored.                                          

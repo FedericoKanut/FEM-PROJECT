@@ -1,0 +1,170 @@
+! ------------------------------------------------------------------------------
+! PROJECT: Vertical blade mixer
+! ...............................................................
+! DETERMINATION OF MAXIMUM DISPLACEMENT AND DIAGRAMS OF INTERNAL LOADING
+! ------------------------------------------------------------------------------
+! N.B. In this version of the project, I'll try to model the blade as well
+! ------------------------------------------------------------------------------
+FINISH
+/CLEAR, START, NEW
+/FILNAME,FEM_Project_v2
+/TITLE,Vertical blade mixer
+! >>>>> MODEL PARAMETERS <<<<<
+
+L1 = 1400 ! Length of the first horizontal segment of the beam [mm]
+L2 = 1200	! Length of the second horizontal segment of the beam [mm]
+L3 = 1400	! Length of the third horizontal segment of the beam [mm]
+H = 300	  ! Portion of the blade above the water [mm]
+H1 = 1200	! Portion of the blade submerged in the water [mm]
+
+!element 1 -> Horizontal beam
+W3 = 150	!cross section width [mm]
+H3 = 180  !cross section height [mm]
+TS = 10	  !cross section thickness [mm]
+!element 2 -> Blade 
+!>>>User-defined section -> pale.sect <<<<!
+TS1 = 12  ! Thickness of the blade surface [mm]
+H2 = 120  ! Height of the blade beam [mm]
+
+! >>>>> MATERIAL PROPERTIES <<<<<
+E_Young = 210000 ! Young's modulus, [MPa]
+ni = 0.29 ! Poisson's ratio
+
+! >>>>> LOADING CONDITIONS <<<<<
+F1 = 2870  ! Force applied to the inner blade [N]
+F2 = 5340  ! Force applied to the outer blade [N]
+MAY= 17900000 ! Moment applied by the motor [Nmm]
+qT= 0.4774 ! Distributed load on the horizontal beam [N/mm]
+Pp= 449.1 ! Blade weight [N]
+
+! >>>>> other parameters <<<<<
+ZofBlade = 41.1818 ! distance of the center of the blade section [mm]
+E_length = 100 ! element length [mm]
+Eps = 1E-4 ! selection tolerance
+
+! >>>>> ELEMENTS AND CROSS-SECTION DEFINITION  <<<<<
+/PREP7
+ET,1,BEAM189
+
+!cross-sectional data of Horizontal beam
+SECTYPE,1,BEAM,HREC
+SECDATA,H3,W3,TS,TS,TS,TS
+!cross-sectional data of Blade
+SECTYPE,2,beam,mesh, pale
+SECREAD, pale, sect,,mesh
+
+! >>>>> MATERIAL PROPERTIES <<<<<
+MP,EX,1,E_Young
+MP,PRXY,1,ni
+MP,dens,1,density
+
+! >>>>> MODEL CREATION <<<<<
+!keypoints horizontal beam
+K,1,0,0,0
+K,2,L1,0,0
+K,3,L1+L2,0,0
+K,4,L1+L2+L3,0,0
+L,1,2
+L,2,3
+L,3,4
+LESIZE,all,E_length !element size
+TYPE,1
+MAT,1
+SECNUM,1
+LMESH,all
+Lsel,u,line,,all
+
+!keypoints of the inner blade
+K,10,L1,0,-W3/2+ZofBlade+(W3-(H2+TS1))/2 ! written to connect the blade to the!horizontal beam may be wrong
+K,11,L1,-(H3/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2
+K,12,L1,-(H3/2)-H,-W3/2+ZofBlade+(W3-(H2+TS1))/2
+K,13,L1,-(H3/2)-H-H1,-W3/2+ZofBlade+(W3-(H2+TS1))/2
+K,14,L1,-(H3/2)-H-(H1/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2 ! point of application!of the force F1
+!L,10,11
+L,11,12
+L,12,13
+LESIZE,all,E_length !element size
+TYPE,1
+MAT,1
+SECNUM,2
+LMESH,all
+Lsel,u,line,,all
+
+!keypoints of the outer blade
+K,20,L1+L2,0,-W3/2+ZofBlade+(W3-(H2+TS1))/2
+K,21,L1+L2,-(H3/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2
+K,22,L1+L2,-(H3/2)-H,-W3/2+ZofBlade+(W3-(H2+TS1))/2
+K,23,L1+L2,-(H3/2)-H-H1,-W3/2+ZofBlade+(W3-(H2+TS1))/2
+K,24,L1+L2,-(H3/2)-H-(H1/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2 ! point of!application of the force F2
+!L,20,21
+L,21,22
+L,22,23
+LESIZE,all,E_length !element size
+TYPE,1
+MAT,1
+SECNUM,2
+LMESH,all
+Lsel,u,line,,all
+
+! Keypoints for rigid beam because pin are off set from the axis of the beam
+ET,2,184,1,1
+!K,31,L1,-(H3/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2
+!K,32,L1+L2,-(H3/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2
+
+!L,10,31
+!L,20,32
+L,2,11
+L,3,21
+
+LESIZE,all,E_length !element size
+
+TYPE,2
+LMESH,all
+
+! Internal pins
+CPINTF,ux,eps
+CPINTF,uy,eps
+CPINTF,uz,eps
+PINTF,rotx,eps
+PINTF,roty,eps
+PINTF,rotz,eps
+
+save
+Fini
+
+! >>>>> BOUNDARY CONDITIONS <<<<<
+/SOLUTION
+ANTYPE, STATIC, NEW !static solution
+
+! Clamp the left end of the horizontal beam
+NSEL, S, loc,y,-eps,+eps
+NSEL,R,loc,x,-eps,+eps
+D, ALL,ALL
+Allsel,all
+
+! Roller support at the right end of the horizontal beam that locks vertical !displacements and rotation about the x-axis
+NSEL, S, loc,y,-eps,+eps
+NSEL,R,loc,x,L1+L2+L3-eps,L1+L2+L3+eps
+D, ALL,UY,0
+D, ALL,ROTX,0
+Allsel,all
+
+! Concentrated force F1 applied to the inner blade in KeyPoint 14 in +Z !direction
+ksel,s,kp,,2
+nslk,s
+F,all,Fz,F1
+ALLSEL, all
+! Concentrated force F2 applied to the outer blade in KeyPoint 24 in +Z !direction
+ksel,s,kp,,3
+nslk,s
+F,all,Fz,F2
+ALLSEL, all
+
+! Gravity load
+Acel,,9.81 !m/s^2
+
+save
+solve
+FINISH
+
+! >>>>> POST-PROCESSING <<<<<

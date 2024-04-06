@@ -1,0 +1,747 @@
+/BATCH  
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       15:32:23
+/input,menust,tmp,''
+/GRA,POWER
+/GST,ON
+/PLO,INFO,3
+/GRO,CURL,ON
+/CPLANE,1   
+/REPLOT,RESIZE  
+WPSTYLE,,,,,,,,0
+/INPUT,'FEM_Project_v0','txt','D:\FEM\PROJECT\Ansys\',, 0   
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       15:32:35
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/REPLOT,RESIZE  
+/VIEW,1,1,1,1   
+/ANG,1  
+/REP,FAST   
+/AUTO,1 
+/REP,FAST   
+/AUTO,1 
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/INPUT,'FEM_Project_v1','txt','D:\FEM\PROJECT\Ansys\',, 0   
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       15:32:52
+/REPLOT,RESIZE  
+EPLOT   
+!*  
+/SHRINK,0   
+/ESHAPE,1.0 
+/EFACET,1   
+/RATIO,1,1,1
+/CFORMAT,32,0   
+/REPLOT 
+!*  
+!*  
+/SHRINK,0   
+/ESHAPE,1   
+/EFACET,1   
+/RATIO,1,1,1
+/CFORMAT,32,0   
+/REPLOT 
+!*  
+/USER,  1   
+/VIEW,  1,  0.890936080859    ,  0.165095087572    ,  0.423056156892
+/ANG,   1,   9.24569158491  
+/REPLO  
+/VIEW,  1,  0.982170668192    , -0.133367091948    ,  0.132491499083
+/ANG,   1,   10.1053171887  
+/REPLO  
+/VIEW,  1,  0.997218792381    ,  0.221268602671E-01,  0.711693907302E-01
+/ANG,   1,   7.90051110298  
+/REPLO  
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/VIEW,  1,  0.991990675636    , -0.851947005713E-01, -0.932542891550E-01
+/ANG,   1,   7.71287861050  
+/REPLO  
+/VIEW,  1,  0.995462860590    , -0.750324314518E-01,  0.585134806323E-01
+/ANG,   1,   8.13721829349  
+/REPLO  
+/AUTO, 1
+/REP
+/VIEW, 1
+/FOC, 1 ,AUTO   
+/DIST, 1
+/ANG, 1 
+/LIG, 1 ,1  
+/REP
+/ANG, 1 ,-30.000000,YS,1
+/REP,FAST   
+/ANG, 1 ,-30.000000,YS,1
+/REP,FAST   
+/ANG, 1 ,-30.000000,YS,1
+/REP,FAST   
+/REPLOT,RESIZE  
+FINISH  
+/FILNAME,FEM_Project_v2 
+/CLEAR, START, NEW  
+/COM,ANSYS RELEASE 2024 R1           BUILD 24.1      UP20231106       15:35:18
+/input,start,ans,'D:\Ansys\ANSYS Inc\ANSYS Student\v241\ANSYS\apdl\'
+/REPLOT,RESIZE  
+/FILNAME,FEM_Project_v2 
+/TITLE,Vertical blade mixer 
+*SET,L1 , 1400 ! Length of the first horizontal segment of the beam [mm]
+*SET,L2 , 1200 ! Length of the second horizontal segment of the beam [mm]   
+*SET,L3 , 1400 ! Length of the third horizontal segment of the beam [mm]
+*SET,H , 300   ! Portion of the blade above the water [mm]  
+*SET,H1 , 1200 ! Portion of the blade submerged in the water [mm]   
+!element 1 -> Horizontal beam   
+*SET,W3 , 150 !cross section width [mm] 
+*SET,H3 , 180  !cross section height [mm]   
+*SET,TS , 10   !cross section thickness [mm]
+!element 2 -> Blade 
+!>>>User-defined section -> pale.sect <<<<! 
+*SET,TS1 , 12  ! Thickness of the blade surface [mm]
+*SET,H2 , 120  ! Height of the blade beam [mm]  
+! >>>>> MATERIAL PROPERTIES <<<<<   
+*SET,E_Young , 210000 ! Young's modulus, [MPa]  
+*SET,ni , 0.29 ! Poisson's ratio
+! >>>>> LOADING CONDITIONS <<<<<
+*SET,F1 , 2870  ! Force applied to the inner blade [N]  
+*SET,F2 , 5340  ! Force applied to the outer blade [N]  
+*SET,MAY, 17900000 ! Moment applied by the motor [Nmm]  
+*SET,qT, 0.4774 ! Distributed load on the horizontal beam [N/mm]
+*SET,Pp, 449.1 ! Blade weight [N]   
+! >>>>> other parameters <<<<<  
+*SET,ZofBlade , 41.1818 ! distance of the center of the blade section [mm]  
+*SET,E_length , 100 ! element length [mm]   
+*SET,Eps , 1E-4 ! selection tolerance   
+/PREP7  
+ET,1,BEAM189
+!cross-sectional data of Horizontal beam
+SECTYPE,1,BEAM,HREC 
+SECDATA,H3,W3,TS,TS,TS,TS   
+!cross-sectional data of Blade  
+SECTYPE,2,beam,mesh, pale   
+SECREAD, pale, sect,,mesh   
+! >>>>> MATERIAL PROPERTIES <<<<<   
+MP,EX,1,E_Young 
+MP,PRXY,1,ni
+MP,dens,1,density   
+K,1,0,0,0   
+K,2,L1,0,0  
+K,3,L1+L2,0,0   
+K,4,L1+L2+L3,0,0
+L,1,2   
+L,2,3   
+L,3,4   
+LESIZE,all,E_length !element size   
+TYPE,1  
+MAT,1   
+SECNUM,1
+LMESH,all   
+Lsel,u,line,,all
+K,10,L1,0,-W3/2+ZofBlade+(W3-(H2+TS1))/2 ! written to connect the blade to the!horizontal beam may be wrong 
+K,11,L1,-(H3/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2  
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+kdele,10
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+K,12,L1,-(H3/2)-H,-W3/2+ZofBlade+(W3-(H2+TS1))/2
+K,13,L1,-(H3/2)-H-H1,-W3/2+ZofBlade+(W3-(H2+TS1))/2 
+K,14,L1,-(H3/2)-H-(H1/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2 
+L,11,12 
+L,12,13 
+LESIZE,all,E_length !element size   
+TYPE,1  
+MAT,1   
+SECNUM,2
+LMESH,all   
+Lsel,u,line,,all
+K,21,L1+L2,-(H3/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2   
+K,22,L1+L2,-(H3/2)-H,-W3/2+ZofBlade+(W3-(H2+TS1))/2 
+K,23,L1+L2,-(H3/2)-H-H1,-W3/2+ZofBlade+(W3-(H2+TS1))/2  
+K,24,L1+L2,-(H3/2)-H-(H1/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2 ! point of!application of the force F2   
+!L,20,21
+L,21,22 
+L,22,23 
+LESIZE,all,E_length !element size   
+TYPE,1  
+MAT,1   
+SECNUM,2
+LMESH,all   
+Lsel,u,line,,all
+KPLOT   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/PNUM,KP,1  
+/PNUM,LINE,0
+/PNUM,AREA,0
+/PNUM,VOLU,0
+/PNUM,NODE,0
+/PNUM,TABN,0
+/PNUM,SVAL,0
+/PNUM,DOMA,0
+/NUMBER,0   
+!*  
+/PNUM,ELEM,0
+/REPLOT 
+!*  
+/PNUM,KP,1  
+/PNUM,LINE,0
+/PNUM,AREA,0
+/PNUM,VOLU,0
+/PNUM,NODE,0
+/PNUM,TABN,0
+/PNUM,SVAL,0
+/PNUM,DOMA,0
+/NUMBER,0   
+!*  
+/PNUM,ELEM,0
+/REPLOT 
+!*  
+ET,2,184,1,1
+L,2,11  
+L,3,21  
+LESIZE,all,E_length !element size   
+TYPE,2  
+LMESH,all   
+/pnum,elem,1
+! Internal pins 
+CPINTF,ux,eps   
+CPINTF,uy,eps   
+CPINTF,uz,eps   
+CPINTF,rotx,eps 
+CPINTF,roty,eps 
+CPINTF,rotz,eps 
+save
+Fini
+! >>>>> BOUNDARY CONDITIONS <<<<<   
+/SOLUTION   
+ANTYPE, STATIC, NEW !static solution
+! Clamp the left end of the horizontal beam 
+NSEL, S, loc,y,-eps,+eps
+NSEL,R,loc,x,-eps,+eps  
+D, ALL,ALL  
+Allsel,all  
+! Roller support at the right end of the horizontal beam that locks vertical !displacements and rotation about the x-axis   
+NSEL, S, loc,y,-eps,+eps
+NSEL,R,loc,x,L1+L2+L3-eps,L1+L2+L3+eps  
+D, ALL,UY,0 
+D, ALL,ROTX,0   
+Allsel,all  
+! Concentrated force F1 applied to the inner blade in KeyPoint 14 in +Z !direction  
+ksel,s,kp,,2
+nslk,s  
+F,all,Fz,F1 
+ALLSEL, all 
+! Concentrated force F2 applied to the outer blade in KeyPoint 24 in +Z !direction  
+ksel,s,kp,,3
+nslk,s  
+F,all,Fz,F2 
+ALLSEL, all 
+! Gravity load  
+Acel,,9.81 !m/s^2   
+save
+solve   
+FINISH  
+/VIEW, 1
+/FOC, 1 ,AUTO   
+/DIST, 1
+/ANG, 1 
+/LIG, 1 ,1  
+/REP
+/USER,  1   
+/VIEW,  1,  0.109653273391    ,  0.938042749783E-01,  0.989533686961
+/ANG,   1,  0.398261929920  
+/REPLO  
+! eshape,1  
+! \eshaèe   
+! \eshape,1 
+EPLOT   
+/REPLOT 
+/REPLOT,RESIZE  
+/REPLOT,RESIZE  
+/REPLOT,RESIZE  
+/eshape,1   
+/VIEW,  1,  0.526115953850    ,  0.129063556491    ,  0.840562074739
+/ANG,   1,   2.80002435908  
+/REPLO  
+/VIEW,  1,  0.613299724208    ,  0.275336789204    ,  0.740306085884
+/ANG,   1,   4.32171412659  
+/REPLO  
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/VIEW,  1,  0.907441734403    ,  0.251147476687    ,  0.336859679417
+/ANG,   1,   13.0077766903  
+/REPLO  
+/VIEW,  1,  0.948336551319    , -0.245758929256    ,  0.200649779775
+/ANG,   1,   12.7963095023  
+/REPLO  
+/VIEW,  1,  0.986065119610    ,  0.149802322330    ,  0.723522225851E-01
+/ANG,   1,   10.6133643071  
+/REPLO  
+/SOLU   
+/STATUS,SOLU
+SOLVE   
+/FOC,   1,   1981.80458106    ,  -751.910566894    ,   146.355487966
+/REPLO  
+/VIEW,  1,  0.849619373364    , -0.245528954449E-01,  0.526824520813
+/ANG,   1,   8.92252988467  
+/REPLO  
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/REPLO  
+FINISH  
+/POST1  
+/REPLOT 
+/VIEW,1,1,1,1   
+/ANG,1  
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+PLDISP,1
+PLDISP,1
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/VIEW,1,1,1,1   
+/ANG,1  
+/REP,FAST   
+/VIEW,1,1,2,3   
+/ANG,1  
+/REP,FAST   
+/VIEW,1,1   
+/ANG,1  
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+KPLOT   
+EPLOT   
+EPLOT   
+/VIEW,1,1,1,1   
+/ANG,1  
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+PLDISP,0
+PLDISP,1
+/PNUM,KP,1  
+/PNUM,LINE,0
+/PNUM,AREA,0
+/PNUM,VOLU,0
+/PNUM,NODE,0
+/PNUM,TABN,0
+/PNUM,SVAL,0
+/PNUM,DOMA,0
+/NUMBER,0   
+!*  
+/PNUM,ELEM,1
+/REPLOT 
+!*  
+/PNUM,KP,0  
+/PNUM,LINE,0
+/PNUM,AREA,0
+/PNUM,VOLU,0
+/PNUM,NODE,0
+/PNUM,TABN,0
+/PNUM,SVAL,0
+/PNUM,DOMA,0
+/NUMBER,0   
+!*  
+/PNUM,ELEM,1
+/REPLOT 
+!*  
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/VIEW,1,,,1 
+/ANG,1  
+/REP,FAST   
+/VIEW,1,,,-1
+/ANG,1  
+/REP,FAST   
+/VIEW,1,,1  
+/ANG,1  
+/REP,FAST   
+/VIEW,1,,1  
+/ANG,1  
+/REP,FAST   
+/VIEW,1,-1  
+/ANG,1  
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,0.924021,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/REPLOT 
+EPLOT   
+EPLOT   
+KPLOT   
+! eshape,1  
+PLDISP,1
+PLDISP,1
+/ZOOM,1,RECT,0.260584,0.217179 ,0.526291595023 ,0.274615372144  
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+/DIST, 1 ,1.082226,1
+/REP,FAST   
+SAVE
+FINISH  
+! /EXIT,ALL 
