@@ -172,4 +172,4 @@ Lsel,u,line,,all
 
 
 
-! ok funziona si può lavorare su questo 
+! ok funziona si può lavorare su questo file
