@@ -3,11 +3,14 @@
 ! ...............................................................
 ! DETERMINATION OF MAXIMUM DISPLACEMENT AND DIAGRAMS OF INTERNAL LOADING
 ! ------------------------------------------------------------------------------
-! N.B. In this version of the project, I'll try to model the blade as well
+! N.B. In this version of the project:
+! 1) The horizontal beam is replaced by a hollow circular section beam. 
+! 2) The blade have a differential mesh to better represent the different sections of the blade.
+! 3) The horizontal beam has a finer mesh in the zone where is constrained.
 ! ------------------------------------------------------------------------------
 FINISH
 /CLEAR, START, NEW
-/FILNAME,FEM_Project_v2
+/FILNAME,FEM_Project_v5
 /TITLE,Vertical blade mixer
 ! >>>>> MODEL PARAMETERS <<<<<
 
@@ -18,9 +21,9 @@ H = 300	  ! Portion of the blade above the water [mm]
 H1 = 1200	! Portion of the blade submerged in the water [mm]
 
 !element 1 -> Horizontal beam
-W3 = 150	!cross section width [mm]
-H3 = 180  !cross section height [mm]
-TS = 10	  !cross section thickness [mm]
+RI = 54	!cross section width [mm]
+RO = 66  !cross section height [mm]
+W3 = 150	!N.B. old cross section width [mm]
 !element 2 -> Blade 
 !>>>User-defined section -> pale.sect <<<<!
 TS1 = 12  ! Thickness of the blade surface [mm]
@@ -39,25 +42,27 @@ F2 = 5340  ! Force applied to the outer blade [N]
 MAY= 17900000 ! Moment applied by the motor [Nmm]
 qT= 0.4774 ! Distributed load on the horizontal beam [N/mm]
 Pp= 449.1 ! Blade weight [N]
+fp1=2.39 ! Distributed force applied to the inner blade [N/mm]
+fp2=4.45 ! Distributed force applied to the outer blade [N/mm]
 
 ! >>>>> other parameters <<<<<
 ZofBlade = 41.1818 ! distance of the center of the blade section [mm]
-E_length = 100 ! element length [mm]
 Eps = 1E-4 ! selection tolerance
+! >>>>> MESH PARAMETERS <<<<<
+E_length = 100 ! element length [mm]
+E_length_short = 5 ! element length [mm]
+
 
 ! >>>>> ELEMENTS AND CROSS-SECTION DEFINITION  <<<<<
 /PREP7
 ET,1,BEAM189
 
 !cross-sectional data of Horizontal beam
-SECTYPE,1,BEAM,HREC
-SECDATA,H3,W3,TS,TS,TS,TS
+SECTYPE,1,BEAM,CTUBE
+SECDATA,RI,RO,20 !54mm inner radius, 66mm outer radius, 20 number of divisions
 !cross-sectional data of Blade
 SECTYPE,2,beam,mesh, pale
 SECREAD, pale, sect,,mesh
-!cross-sectional data of Blade design section 2
-!SECTYPE,3,BEAM,QUAD
-!SECDATA,-W1/2,-H2/2,W1/2,-W1/2,+W1/2,+H2/2,-W1/2,+H2/2,Ng,Nh
 
 ! >>>>> MATERIAL PROPERTIES <<<<<
 MP,EX,1,E_Young
@@ -73,44 +78,84 @@ K,4,L1+L2+L3,0,0
 L,1,2
 L,2,3
 L,3,4
-LESIZE,all,E_length !element size
+! Differential mesh for the initial part of the horizontal beam
+LESIZE,1,E_length,,,5 !element size
 TYPE,1
 MAT,1
 SECNUM,1
-LMESH,all
-Lsel,u,line,,all
+LMESH,1
+Lsel,u,line,,1
+
+LESIZE,2,E_length
+TYPE,1
+MAT,1
+SECNUM,1
+LMESH,2
+Lsel,u,line,,2
+
+LESIZE,3,E_length
+TYPE,1
+MAT,1
+SECNUM,1
+LMESH,3
+Lsel,u,line,,3
+
+!LESIZE,all,E_length !element size
+!TYPE,1
+!MAT,1
+!SECNUM,1
+!LMESH,all
+!Lsel,u,line,,all
 
 !keypoints of the inner blade
 K,10,L1,0,-W3/2+ZofBlade+(W3-(H2+TS1))/2 ! written to connect the blade to the!horizontal beam may be wrong
-K,11,L1,-(H3/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2
-K,12,L1,-(H3/2)-H,-W3/2+ZofBlade+(W3-(H2+TS1))/2
-K,13,L1,-(H3/2)-H-H1,-W3/2+ZofBlade+(W3-(H2+TS1))/2
-K,14,L1,-(H3/2)-H-(H1/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2 ! point of application!of the force F1
+K,11,L1,-RO,-W3/2+ZofBlade+(W3-(H2+TS1))/2
+K,12,L1,-RO-H,-W3/2+ZofBlade+(W3-(H2+TS1))/2
+K,13,L1,-RO-H-H1,-W3/2+ZofBlade+(W3-(H2+TS1))/2
+K,14,L1,-RO-H-(H1/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2 ! point of application!of the force F1
 !L,10,11
 L,11,12
 L,12,13
-LESIZE,all,E_length !element size
+! Differential mesh for the inner blade
+! Finner mesh -> Attachment zone
+LESIZE,4,E_length_short,,,100 !element size
 TYPE,1
 MAT,1
 SECNUM,2
-LMESH,all
-Lsel,u,line,,all
+LMESH,4
+Lsel,u,line,,4
+! Larger mesh -> Submerged zone
+LESIZE,5,E_length,,,5 
+TYPE,1
+MAT,1
+SECNUM,2
+LMESH,5
+Lsel,u,line,,5
 
 !keypoints of the outer blade
 K,20,L1+L2,0,-W3/2+ZofBlade+(W3-(H2+TS1))/2
-K,21,L1+L2,-(H3/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2
-K,22,L1+L2,-(H3/2)-H,-W3/2+ZofBlade+(W3-(H2+TS1))/2
-K,23,L1+L2,-(H3/2)-H-H1,-W3/2+ZofBlade+(W3-(H2+TS1))/2
-K,24,L1+L2,-(H3/2)-H-(H1/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2 ! point of!application of the force F2
+K,21,L1+L2,-RO,-W3/2+ZofBlade+(W3-(H2+TS1))/2
+K,22,L1+L2,-RO-H,-W3/2+ZofBlade+(W3-(H2+TS1))/2
+K,23,L1+L2,-RO-H-H1,-W3/2+ZofBlade+(W3-(H2+TS1))/2
+K,24,L1+L2,-RO-H-(H1/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2 ! point of!application of the force F2
 !L,20,21
 L,21,22
 L,22,23
-LESIZE,all,E_length !element size
+! Differential mesh for the outer blade
+! Finner mesh -> Attachment zone
+LESIZE,6,E_length_short,,,100 !element size
 TYPE,1
 MAT,1
 SECNUM,2
-LMESH,all
-Lsel,u,line,,all
+LMESH,6
+Lsel,u,line,,6
+! Larger mesh -> Submerged zone
+LESIZE,7,E_length,,,5 
+TYPE,1
+MAT,1
+SECNUM,2
+LMESH,7
+Lsel,u,line,,7
 
 ! Keypoints for rigid beam because pin are off set from the axis of the beam
 ET,2,184,1,1
@@ -156,27 +201,21 @@ D, ALL,ROTX,0
 Allsel,all
 
 ! >>>>> LOADING CONDITIONS <<<<<
-! Distributed load qT applied to all the nodes of the vertical inner blade between KeyPoint 12 and KeyPoint 13
-KEYOPT, ALL, 12, 13 ! Selects keypoints from 1 to 12
-NSEL, ALL ! Selects all nodes between KeyPoint 1 and KeyPoint 12
-D, ALL, F, -qT ! Apply the load to all selected nodes
-ALLSEL, all
-
-! Distributed load qT applied to the vertical outer blade between KeyPoint 21 and KeyPoint 24
-ksel,s,kp,,21
-nslk,s  
-F,all,Fz,-qT
-ALLSEL, all
-! Concentrated force F1 applied to the inner blade in KeyPoint 14 in +Z !direction
-ksel,s,kp,,2
-nslk,s
-F,all,Fz,F1
-ALLSEL, all
-! Concentrated force F2 applied to the outer blade in KeyPoint 24 in +Z !direction
-ksel,s,kp,,3
-nslk,s
-F,all,Fz,F2
-ALLSEL, all
+! Distributed load qT applied to the horizontal beam in -Y direction
+LSEL,S,LINE,,1,3
+ESLL,S
+SFBEAM,ALL,2,PRES,qT !Check the correctness of using PRES because qT [N/mm]
+ALLSEL,ALL,ALL
+! Distributed force fp1 applied to the inner blade in KeyPoint 14 in +Z !direction
+LSEL,S,LINE,,5
+ESLL,S 
+SFBEAM,ALL,1,PRES,-fp1 !Check the correctness of using PRES because fp1 [N/mm]
+ALLSEL,ALL,ALL
+! Distributed force fp2 applied to the outer blade in KeyPoint 24 in +Z !direction
+LSEL,S,LINE,,7
+ESLL,S 
+SFBEAM,ALL,1,PRES,-fp2 !Check the correctness of using PRES because fp2 [N/mm]
+ALLSEL,ALL,ALL
 ! Concentrated force Pp applied to the inner blade in KeyPoint 2 in -Y !direction
 ksel,s,kp,,2
 nslk,s
@@ -200,8 +239,8 @@ set,last
 pldisp,1 !displacement plot 
 /eshape,1
 plnsol,s,x !normal stress in x
-plnsol,s,y !normal stress in y
-plnsol,s,z !normal stress in z
+plnsol,s,y !normal stress in y -> I get no results
+plnsol,s,z !normal stress in z -> I get no results
 ! internal loading diagrams
 
 ! >>>>> INTERNAL LOADING DIAGRAMS <<<<<

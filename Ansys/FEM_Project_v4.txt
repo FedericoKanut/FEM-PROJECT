@@ -3,11 +3,11 @@
 ! ...............................................................
 ! DETERMINATION OF MAXIMUM DISPLACEMENT AND DIAGRAMS OF INTERNAL LOADING
 ! ------------------------------------------------------------------------------
-! N.B. In this version of the project, I'll try to model the blade as well
+! N.B. In this version of the project I'll use shell elements to model the blade
 ! ------------------------------------------------------------------------------
 FINISH
 /CLEAR, START, NEW
-/FILNAME,FEM_Project_v1
+/FILNAME,FEM_Project_v3
 /TITLE,Vertical blade mixer
 ! >>>>> MODEL PARAMETERS <<<<<
 
@@ -25,6 +25,9 @@ TS = 10	  !cross section thickness [mm]
 !>>>User-defined section -> pale.sect <<<<!
 TS1 = 12  ! Thickness of the blade surface [mm]
 H2 = 120  ! Height of the blade beam [mm]
+!>>>User-defined section 2 -> Blade design section 2 <<<<!
+Ng = 10 ! Number of cells along g see SECDATA command
+Nh = 10 ! Number of cells along h see SECDATA command
 
 ! >>>>> MATERIAL PROPERTIES <<<<<
 E_Young = 210000 ! Young's modulus, [MPa]
@@ -45,13 +48,17 @@ Eps = 1E-4 ! selection tolerance
 ! >>>>> ELEMENTS AND CROSS-SECTION DEFINITION  <<<<<
 /PREP7
 ET,1,BEAM189
-
+ET,2,SHELL208
+KEYOPT,2,8,2
 !cross-sectional data of Horizontal beam
 SECTYPE,1,BEAM,HREC
 SECDATA,H3,W3,TS,TS,TS,TS
 !cross-sectional data of Blade
-SECTYPE,2,beam,mesh, pale
+SECTYPE,2,shell,mesh, pale 
 SECREAD, pale, sect,,mesh
+!cross-sectional data of Blade design section 2
+!SECTYPE,3,BEAM,QUAD
+!SECDATA,-W1/2,-H2/2,W1/2,-W1/2,+W1/2,+H2/2,-W1/2,+H2/2,Ng,Nh
 
 ! >>>>> MATERIAL PROPERTIES <<<<<
 MP,EX,1,E_Young
@@ -106,70 +113,97 @@ SECNUM,2
 LMESH,all
 Lsel,u,line,,all
 
-!! keypoints for rigid beam
-!ET,2,184,1,1
+! Keypoints for rigid beam because pin are off set from the axis of the beam
+ET,2,184,1,1
 !K,31,L1,-(H3/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2
 !K,32,L1+L2,-(H3/2),-W3/2+ZofBlade+(W3-(H2+TS1))/2
-!
+
 !L,10,31
 !L,20,32
-!
-!LESIZE,all,E_length !element size
-!
-!TYPE,2
-!LMESH,all
+L,2,11
+L,3,21
 
-!Internal pins
-!CPINTF,ux,eps
-!CPINTF,uy,eps
-!CPINTF,uz,eps
-!CPINTF,rotx,eps
-!CPINTF,roty,eps
-!CPINTF,rotz,eps
+LESIZE,all,E_length !element size
 
-!save
-!Fini
-!
-!! >>>>> BOUNDARY CONDITIONS <<<<<
-!/SOLUTION
-!ANTYPE, STATIC, NEW !static solution
-!
-!! Clamp the left end of the horizontal beam
-!NSEL, S, loc,y,-eps,+eps
-!NSEL,R,loc,x,-eps,+eps
-!D, ALL,ALL
-!Allsel,all
-!
-!! Roller support at the right end of the horizontal beam that locks vertical !displacements and rotation about the x-axis
-!NSEL, S, loc,y,-eps,+eps
-!NSEL,R,loc,x,L1+L2+L3-eps,L1+L2+L3+eps
-!D, ALL,UY,0
-!D, ALL,ROTX,0
-!Allsel,all
-!
-!! Concentrated force F1 applied to the inner blade in KeyPoint 14 in +Z !direction
-!ksel,s,kp,,2
-!nslk,s
-!F,all,Fz,F1
-!ALLSEL, all
-!! Concentrated force F2 applied to the outer blade in KeyPoint 24 in +Z !direction
-!ksel,s,kp,,3
-!nslk,s
-!F,all,Fz,F2
-!ALLSEL, all
-!
-!! Gravity load
-!Acel,,9.81 !m/s^2
-!
-!save
-!solve
-!FINISH
-!
-!! >>>>> POST-PROCESSING <<<<<
+TYPE,2
+LMESH,all
 
+! Internal pins
+CPINTF,ux,eps
+CPINTF,uy,eps
+CPINTF,uz,eps
+CPINTF,rotx,eps
+CPINTF,roty,eps
+CPINTF,rotz,eps
 
+save
+Fini
 
+! >>>>> BOUNDARY CONDITIONS <<<<<
+/SOLUTION
+ANTYPE, STATIC, NEW !static solution
 
+! Clamp the left end of the horizontal beam
+NSEL, S, loc,y,-eps,+eps
+NSEL,R,loc,x,-eps,+eps
+D, ALL,ALL
+Allsel,all
 
+! Roller support at the right end of the horizontal beam that locks vertical !displacements and rotation about the x-axis
+NSEL, S, loc,y,-eps,+eps
+NSEL,R,loc,x,L1+L2+L3-eps,L1+L2+L3+eps
+D, ALL,UY,0
+D, ALL,ROTX,0
+Allsel,all
 
-! ok funziona si può lavorare su questo file
+! >>>>> LOADING CONDITIONS <<<<<
+! Distributed load qT applied to all the nodes of the vertical inner blade between KeyPoint 12 and KeyPoint 13
+KEYOPT, ALL, 12, 13 ! Selects keypoints from 1 to 12
+NSEL, ALL ! Selects all nodes between KeyPoint 1 and KeyPoint 12
+D, ALL, F, -qT ! Apply the load to all selected nodes
+ALLSEL, all
+
+! Distributed load qT applied to the vertical outer blade between KeyPoint 21 and KeyPoint 24
+ksel,s,kp,,21
+nslk,s  
+F,all,Fz,-qT
+ALLSEL, all
+! Concentrated force F1 applied to the inner blade in KeyPoint 14 in +Z !direction
+ksel,s,kp,,2
+nslk,s
+F,all,Fz,F1
+ALLSEL, all
+! Concentrated force F2 applied to the outer blade in KeyPoint 24 in +Z !direction
+ksel,s,kp,,3
+nslk,s
+F,all,Fz,F2
+ALLSEL, all
+! Concentrated force Pp applied to the inner blade in KeyPoint 2 in -Y !direction
+ksel,s,kp,,2
+nslk,s
+F,all,Fy,-Pp
+ALLSEL, all
+! Concentrated force Pp applied to the outer blade in KeyPoint 3 in -Y !direction
+ksel,s,kp,,3
+nslk,s
+F,all,Fy,-Pp
+ALLSEL, all
+! Gravity load
+Acel,,9.81 !m/s^2
+
+save
+solve
+FINISH
+
+! >>>>> POST-PROCESSING <<<<<
+/post1
+set,last
+pldisp,1 !displacement plot 
+/eshape,1
+plnsol,s,x !normal stress in x
+plnsol,s,y !normal stress in y
+plnsol,s,z !normal stress in z
+! internal loading diagrams
+
+! >>>>> INTERNAL LOADING DIAGRAMS <<<<<
+! Internal loading diagrams for the horizontal beam
